@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-1 p-0">
+            <div class="side-menu">
+                <div class="row">
+                    <div class="col-2 col-md-12">
+                        <div class="first">
+                            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-12">
+                        <div class="">
+                            <i class="fa fa-address-card"></i>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-12">
+                        <div class="">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-12">
+                        <div class="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-12">
+                        <div class="">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-12">
+                        <div class="">
+                            <i class="fa fa-building-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-11">
+            <div class="right-content">
+                <h6>AlexDawoodheen</h6>
+                <div class="card card-top" *ngFor="let data of AllDatas">
+                    <div class="row">
+                        <div class="col-4 col-sm-4 col-md-5">
+                            <h6>{{data.name}}</h6>
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-2">
+                            <div class="upload-wrapper">
+                                <i class="fa fa-upload" aria-hidden="true"></i>
+                                <p>Upload</p>
+                                <input [(ngModel)]="uploadImge" type="file" class="form-control"
+                                    (change)="onSelectFile($event, data.id)">
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-4 col-md-5">
+                            <div class="right-icons">
+                                <p><i class="fa fa-download"></i></p>
+                                <p><i class="fa fa-pencil-square-o"></i></p>
+                                <p><i (click)="closeBox(data.id)" class="fa fa-times-circle"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" *ngFor="let dec of data.dec">
+                        <div class="col-12 col-md-10" *ngIf="dec.fileName">
+                            <div class="row">
+                                <div class="col-4 col-md-4">
+                                    <p><b>File Name</b></p>
+                                </div>
+                                <div class="col-1 col-md-1">
+                                    <p>:</p>
+                                </div>
+                                <div class="col-7 col-md-7">
+                                    <p>{{dec.fileName}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 col-md-4">
+                                    <p><b>File Type</b></p>
+                                </div>
+                                <div class="col-1 col-md-1">
+                                    <p>:</p>
+                                </div>
+                                <div class="col-7 col-md-7">
+                                    <p>{{dec.fileType}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 col-md-4">
+                                    <p><b>Expires On</b></p>
+                                </div>
+                                <div class="col-1 col-md-1">
+                                    <p>:</p>
+                                </div>
+                                <div class="col-7 col-md-7">
+                                    <p>{{dec.date}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
